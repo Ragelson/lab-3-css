@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Лабораторная работа №3 — CSS. Позиционирование</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body id="top">
+
+	<header class="page-banner">
+		<h1>NetGuard</h1>
+		<p>монтаж и защита сетей</p>
+	</header>
+
+	<!-- Горизонтальное меню с выпадающими подпунктами (из методички) -->
+	<nav class="nav" aria-label="Главное меню">
+		<div class="nav-item">
+			<a class="pt" href="#top">Главная</a>
+			<div class="drop">
+				<a class="drop-item" href="#top">Главная страница</a>
+				<a class="drop-item" href="#contacts">Контакты</a>
+				<a class="drop-item" href="#about">О нас</a>
+			</div>
+		</div>
+		<a class="pt" href="#services">Отделы продаж</a>
+		<div class="nav-item">
+			<a class="pt" href="#equipment">Оборудование</a>
+			<div class="drop">
+				<a class="drop-item" href="#equipment">Роутеры и коммутаторы</a>
+				<a class="drop-item" href="#equipment">IP-камеры</a>
+				<a class="drop-item" href="#equipment">СКУД</a>
+			</div>
+		</div>
+		<a class="pt" href="#services">Наши услуги</a>
+		<a class="pt" href="#contacts">Контакты</a>
+		<a class="pt" href="#about">О нас</a>
+	</nav>
+
+	<main>
+
+		<!-- Задание 1. Трёхколоночный макет (float: left / float: right / overflow: hidden) -->
+		<section id="task1" class="task">
+			<h2>Задание 1. Трёхколоночный макет</h2>
+
+			<div class="columns">
+
+				<aside class="col-left panel">
+					<h3>Новости</h3>
+					<p>Открыли новый филиал в Уфе: монтаж СКУД и видеонаблюдения для образовательных учреждений.</p>
+					<p>Запущена услуга удалённого аудита Wi-Fi-сетей — находим «слепые зоны» и уязвимости за один выезд.</p>
+					<p>Обновили парк оборудования: теперь устанавливаем коммутаторы с поддержкой PoE+ для IP-камер и точек доступа.</p>
+				</aside>
+
+				<aside class="col-right">
+					<div class="panel" id="contacts">
+						<h3>Контакты</h3>
+						<p><strong>Адрес:</strong> г. Уфа, ул. Инженерная, 12<br>
+						<strong>Телефон:</strong> 8-999-000-00-00</p>
+					</div>
+					<div class="panel" id="services">
+						<h3>Услуги</h3>
+						<ul class="services-list">
+							<li>Монтаж СКУД и видеонаблюдения</li>
+							<li>Настройка Wi-Fi и VPN</li>
+							<li>IT-аудит сетевой инфраструктуры</li>
+						</ul>
+					</div>
+				</aside>
+
+				<div class="col-center panel" id="equipment">
+					<div class="icon-grid">
+
+						<a class="icon-card" href="#" aria-label="Роутер">
+							<img src="img/router.png" width="80" height="80" alt="">
+							<span class="icon-layer">Роутер</span>
+						</a>
+						<a class="icon-card" href="#" aria-label="Коммутатор">
+							<img src="img/switch.png" width="80" height="80" alt="">
+							<span class="icon-layer">Коммутатор</span>
+						</a>
+						<a class="icon-card" href="#" aria-label="IP-камера">
+							<img src="img/camera.png" width="80" height="80" alt="">
+							<span class="icon-layer">IP-камера</span>
+						</a>
+						<a class="icon-card" href="#" aria-label="Сервер">
+							<img src="img/server.png" width="80" height="80" alt="">
+							<span class="icon-layer">Сервер</span>
+						</a>
+						<a class="icon-card" href="#" aria-label="Wi-Fi">
+							<img src="img/wifi.png" width="80" height="80" alt="">
+							<span class="icon-layer">Wi-Fi</span>
+						</a>
+						<a class="icon-card" href="#" aria-label="СКУД / замок">
+							<img src="img/lock.png" width="80" height="80" alt="">
+							<span class="icon-layer">СКУД</span>
+						</a>
+						<a class="icon-card" href="#" aria-label="Межсетевой экран">
+							<img src="img/firewall.png" width="80" height="80" alt="">
+							<span class="icon-layer">Firewall</span>
+						</a>
+						<a class="icon-card" href="#" aria-label="Облако">
+							<img src="img/cloud.png" width="80" height="80" alt="">
+							<span class="icon-layer">Облако</span>
+						</a>
+
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- Задание 2. Вертикальное меню с выпадающим подменю -->
+		<section id="task2" class="task">
+			<h2>Задание 2. Вертикальное меню с подменю</h2>
+			<nav class="vmenu" aria-label="Вертикальное меню">
+				<div class="vitem">
+					<a href="#top">Главная <span class="arrow">›</span></a>
+					<div class="vdrop">
+						<a href="#top">Главная страница</a>
+						<a href="#contacts">Контакты</a>
+						<a href="#about">О нас</a>
+					</div>
+				</div>
+				<a class="vitem-plain" href="#services">Отделы продаж</a>
+				<div class="vitem">
+					<a href="#equipment">Оборудование <span class="arrow">›</span></a>
+					<div class="vdrop">
+						<a href="#equipment">Роутеры и коммутаторы</a>
+						<a href="#equipment">IP-камеры</a>
+						<a href="#equipment">СКУД</a>
+					</div>
+				</div>
+				<a class="vitem-plain" href="#services">Наши услуги</a>
+				<a class="vitem-plain" href="#contacts">Контакты</a>
+				<a class="vitem-plain" href="#about">О нас</a>
+			</nav>
+		</section>
+
+		<!-- Задание 2*. Вертикальное меню с двойной вложенностью -->
+		<section id="task2star" class="task">
+			<h2>Задание 2*. Меню с двойной вложенностью</h2>
+			<nav class="vmenu" aria-label="Меню с двойной вложенностью">
+				<a class="vitem-plain" href="#top">Главная</a>
+				<a class="vitem-plain" href="#services">Отделы продаж</a>
+				<div class="vitem">
+					<a href="#equipment">Оборудование <span class="arrow">›</span></a>
+					<div class="vdrop">
+						<div class="vitem">
+							<a href="#equipment">Сетевое <span class="arrow">›</span></a>
+							<div class="vdrop vdrop-2">
+								<a href="#equipment">Роутеры</a>
+								<a href="#equipment">Коммутаторы</a>
+								<a href="#equipment">Точки доступа</a>
+							</div>
+						</div>
+						<a href="#equipment">IP-камеры</a>
+						<a href="#equipment">СКУД</a>
+					</div>
+				</div>
+				<a class="vitem-plain" href="#services">Наши услуги</a>
+				<a class="vitem-plain" href="#contacts">Контакты</a>
+				<a class="vitem-plain" href="#about">О нас</a>
+			</nav>
+		</section>
+
+		<!-- Задание 3. Вертикальное меню, раскрывающееся вниз (аккордеон) -->
+		<section id="task3" class="task">
+			<h2>Задание 3. Меню, раскрывающееся вниз</h2>
+			<nav class="vmenu accordion" aria-label="Раскрывающееся меню">
+				<div class="acc-item">
+					<a href="#top">Главная <span class="arrow-down">⌄</span></a>
+					<div class="acc-drop">
+						<a href="#top">Главная страница</a>
+						<a href="#contacts">Контакты</a>
+						<a href="#about">О нас</a>
+					</div>
+				</div>
+				<a class="vitem-plain" href="#services">Отделы продаж</a>
+				<div class="acc-item">
+					<a href="#equipment">Оборудование <span class="arrow-down">⌄</span></a>
+					<div class="acc-drop">
+						<a href="#equipment">Роутеры и коммутаторы</a>
+						<a href="#equipment">IP-камеры</a>
+						<a href="#equipment">СКУД</a>
+					</div>
+				</div>
+				<a class="vitem-plain" href="#services">Наши услуги</a>
+				<a class="vitem-plain" href="#contacts">Контакты</a>
+				<a class="vitem-plain" href="#about">О нас</a>
+			</nav>
+		</section>
+
+		<section id="about" class="task">
+			<h2>О работе</h2>
+			<p>Мавлютов Марат Радикович, группа ПИ-207БЗу. Лабораторная работа №3 «CSS. Позиционирование» — трёхколоночный макет и вертикальные меню на float / position, без flex и grid.</p>
+		</section>
+
+	</main>
+
+	<footer class="page-footer">
+		Лабораторная работа №3 · CSS <a href="#top">наверх ↑</a>
+	</footer>
+
+</body>
+</html>

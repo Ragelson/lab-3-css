@@ -1,0 +1,311 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	background: #0f1a24;
+	color: #e7edf3;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.page-banner {
+	text-align: center;
+	padding: 26px 20px 16px;
+	background: linear-gradient(135deg, #0f1a24, #1b2838);
+}
+
+.page-banner h1 {
+	margin: 0;
+	font-size: 34px;
+	color: #4fd1c5;
+	letter-spacing: 2px;
+}
+
+.page-banner p {
+	margin: 6px 0 0;
+	color: #9fb3c8;
+	text-transform: uppercase;
+	font-size: 13px;
+	letter-spacing: 1px;
+}
+
+/* ===== Горизонтальное меню с выпадающими подпунктами ===== */
+.nav {
+	background: linear-gradient(to bottom, #24364a, #1b2838);
+	border-radius: 4px;
+	margin: 16px auto 0;
+	max-width: 1040px;
+	padding: 4px 0 0;
+	box-shadow: 0 3px 6px #0006;
+}
+.nav::after { content: ""; display: table; clear: both; }
+
+.nav .pt {
+	display: block;
+	float: left;
+	padding: 13px 22px;
+	color: #e7edf3;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 14px;
+	border-right: 1px solid #33485f;
+}
+.nav .pt:hover {
+	background: #4fd1c5;
+	color: #0f1a24;
+}
+
+.nav-item {
+	float: left;
+	position: relative;
+}
+.nav-item .drop {
+	position: absolute;
+	display: none;
+	top: 100%;
+	left: 0;
+	min-width: 220px;
+	background: #1b2838;
+	box-shadow: 0 4px 8px #0008;
+	z-index: 5;
+}
+.nav-item:hover .drop {
+	display: block;
+}
+.drop-item {
+	display: block;
+	padding: 10px 18px;
+	border-top: 1px solid #243448;
+	font-size: 14px;
+}
+.drop-item:hover {
+	background: #243448;
+	color: #4fd1c5;
+}
+
+main {
+	max-width: 1040px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.task {
+	margin-bottom: 46px;
+}
+
+.task h2 {
+	border-bottom: 1px solid #243448;
+	padding-bottom: 8px;
+	color: #4fd1c5;
+	font-size: 20px;
+}
+
+.panel {
+	background: #16222f;
+	border: 1px solid #233448;
+	border-radius: 6px;
+	padding: 16px;
+}
+.panel h3 {
+	margin-top: 0;
+	color: #4fd1c5;
+	font-size: 16px;
+}
+
+/* ===== Задание 1. Трёхколоночный макет ===== */
+/* По методичке: в HTML сначала идут левый и правый блок, затем центральный.
+   Левому — float:left, правому — float:right, центральному — overflow:hidden (не плавающий). */
+.columns {
+	overflow: hidden; /* охватываем float-колонки родителем */
+}
+
+.col-left {
+	float: left;
+	width: 24%;
+	margin-right: 1.5%;
+}
+
+.col-right {
+	float: right;
+	width: 24%;
+}
+.col-right .panel {
+	margin-bottom: 14px;
+}
+.col-right .panel:last-child {
+	margin-bottom: 0;
+}
+
+.col-center {
+	overflow: hidden; /* не плавающий блок, занимает оставшееся место */
+}
+
+.services-list {
+	margin: 0;
+	padding-left: 18px;
+}
+.services-list li {
+	margin-bottom: 6px;
+	font-size: 14px;
+}
+
+/* ---- наплывающие подписи на иконках (техника base/layer из методички) ---- */
+.icon-grid {
+	overflow: hidden;
+}
+.icon-card {
+	position: relative;
+	float: left;
+	width: 90px;
+	height: 90px;
+	margin: 0 14px 14px 0;
+	border-radius: 6px;
+	overflow: hidden; /* прячем наплывающий слой за пределами карточки */
+	background: #1b2838;
+}
+.icon-card img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.icon-layer {
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-size: 13px;
+	font-weight: bold;
+	color: #0f1a24;
+	background: rgba(79, 209, 197, 0.9);
+	transition: left 0.3s;
+}
+.icon-card:hover .icon-layer {
+	left: 0;
+}
+
+/* Узкие экраны: колонки уходят друг под друга, центр остаётся overflow:hidden */
+@media (max-width: 760px) {
+	.col-left, .col-right {
+		float: none;
+		width: 100%;
+		margin: 0 0 14px;
+	}
+}
+
+/* ===== Задание 2 / 2* / 3. Вертикальные меню ===== */
+.vmenu {
+	max-width: 320px;
+}
+
+.vitem-plain,
+.vitem > a,
+.acc-item > a {
+	display: block;
+	padding: 13px 18px;
+	background: linear-gradient(to bottom, #233448, #1b2838);
+	border: 1px solid #0f1a24;
+	border-top: none;
+	font-size: 14px;
+}
+.vmenu > *:first-child > a,
+.vmenu > a:first-child {
+	border-top: 1px solid #0f1a24;
+}
+
+.vitem-plain:hover,
+.vitem > a:hover,
+.acc-item > a:hover {
+	background: #4fd1c5;
+	color: #0f1a24;
+}
+
+.arrow, .arrow-down {
+	float: right;
+	color: #4fd1c5;
+}
+.vitem > a:hover .arrow,
+.acc-item > a:hover .arrow-down {
+	color: #0f1a24;
+}
+
+/* --- Задание 2: выпадение сбоку (flyout) --- */
+.vitem {
+	position: relative;
+}
+.vitem .vdrop {
+	position: absolute;
+	display: none;
+	top: 0;
+	left: 100%;
+	min-width: 220px;
+	background: #16222f;
+	box-shadow: 0 4px 8px #0008;
+}
+.vitem:hover > .vdrop {
+	display: block;
+}
+.vdrop a {
+	display: block;
+	padding: 11px 16px;
+	border-bottom: 1px solid #233448;
+	font-size: 13px;
+}
+.vdrop a:hover {
+	background: #233448;
+	color: #4fd1c5;
+}
+
+/* --- Задание 2*: второй уровень вложенности выезжает ещё правее --- */
+.vdrop .vitem > a {
+	background: none;
+	border: none;
+	padding: 11px 16px;
+}
+.vdrop-2 {
+	top: 0;
+	left: 100%;
+}
+
+/* --- Задание 3: раскрытие вниз (аккордеон), сдвигает остальные пункты --- */
+.acc-item .acc-drop {
+	max-height: 0;
+	overflow: hidden;
+	background: #0f1a24;
+	transition: max-height 0.3s ease;
+}
+.acc-item:hover .acc-drop {
+	max-height: 220px;
+}
+.acc-drop a {
+	display: block;
+	padding: 10px 24px;
+	font-size: 13px;
+	border-top: 1px solid #233448;
+}
+.acc-drop a:hover {
+	background: #233448;
+	color: #4fd1c5;
+}
+
+.page-footer {
+	text-align: center;
+	padding: 20px;
+	color: #9fb3c8;
+	font-size: 13px;
+	border-top: 1px solid #233448;
+}
+.page-footer a {
+	color: #4fd1c5;
+	margin-left: 8px;
+}
